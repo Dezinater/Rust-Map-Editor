@@ -25,7 +25,6 @@ public class TerrainMap<T> where T : struct
 	public TerrainMap(byte[] data, int channels)
 	{
 		res = Mathf.RoundToInt(Mathf.Sqrt(data.Length / BytesPerElement() / channels));
-        Debug.Log(res);
 		src = dst = new T[channels * res * res];
 		FromByteArray(data);
 	}
@@ -75,8 +74,6 @@ public class TerrainMap<T> where T : struct
 
 	public void FromByteArray(byte[] dat)
 	{
-        Debug.Log(dat.Length);
-        Debug.Log(dst.Length);
         Buffer.BlockCopy(dat, 0, dst, 0, dat.Length);
 	}
 }

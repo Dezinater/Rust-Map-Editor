@@ -63,9 +63,16 @@ public class MapLoader : MonoBehaviour{
             Vector3 scale = new Vector3(terrains.prefabData[i].scale.x, terrains.prefabData[i].scale.y, terrains.prefabData[i].scale.z);
             Quaternion rotation = Quaternion.Euler(new Vector3(terrains.prefabData[i].rotation.x, terrains.prefabData[i].rotation.y, terrains.prefabData[i].rotation.z));
 
-            GameObject newObject = Instantiate(defaultObj, pos+terrainPosition, rotation);
+            GameObject g = FileSystem.Load<GameObject>(StringPool.Get((blob.world.prefabs[i].id)));
+
+            GameObject newObject = Instantiate(g, pos+terrainPosition, rotation);
             newObject.transform.localScale = scale;
-            newObject.GetComponent<PrefabDataHolder>().prefabData = terrains.prefabData[i];
+            PrefabDataHolder pdh = newObject.GetComponent<PrefabDataHolder>();
+            if(pdh == null)
+            {
+                newObject.AddComponent<PrefabDataHolder>();
+            }
+            pdh.prefabData = terrains.prefabData[i];
         }
 
         GameObject pathObj = Resources.Load<GameObject>("Paths/Path");
@@ -103,11 +110,20 @@ public class MapLoader : MonoBehaviour{
         {
             var blob = new WorldSerialization();
             Debug.Log("Loading");
-           
-            blob.Load(filename);
 
+            //
+
+            //
+            //StringPool
+            
+
+            blob.Load(filename);
             Load(blob);
-       
+
+            
+
+            
+
         }
         if (GUILayout.Button("Save"))
         {
@@ -129,5 +145,12 @@ public class MapLoader : MonoBehaviour{
 
         GUILayout.EndVertical();
         GUILayout.EndArea();
+    }
+
+    public void Awake()
+    {
+
+        FileSystem.iface = new FileSystem_AssetBundles(@"C:\Program Files (x86)\Steam\steamapps\common\RustStaging\Bundles\Bundles");
+
     }
 }

@@ -123,7 +123,20 @@ public class WorldSerialization
 		return null;
 	}
 
-	public void AddMap(string name, byte[] data)
+    private void Spawn(WorldSerialization.PrefabData prefab)
+    {
+        this.Spawn(prefab.category, prefab.id, (Vector3)prefab.position, (Quaternion)prefab.rotation, (Vector3)prefab.scale);
+    }
+
+    private void Spawn(string category, uint id, Vector3 position, Quaternion rotation, Vector3 scale)
+    {
+        //GameObject prefab = Prefab.DefaultManager.CreatePrefab(StringPool.Get(id), position, rotation, scale, true);
+        //if (!(bool)((UnityEngine.Object)prefab))
+        //    return;
+        //prefab.SetHierarchyGroup(category, true, false);
+    }
+
+    public void AddMap(string name, byte[] data)
 	{
 		var map = new MapData();
 
@@ -205,7 +218,8 @@ public class WorldSerialization
 		}
 	}
 
-	public void Load(string fileName)
+
+    public void Load(string fileName)
 	{
 		try
 		{
