@@ -5,6 +5,12 @@ Make sure you're using a Unity 2018 version. 2018.2 is confirmed working, not su
 Set your Unity .NET version to 4.0.
 Edit > Project Settings > Player > Other Settings > Configuration > Scripting Runtime Version
 
+Check out my patreon and help support developement for this Map Editor and new future Rust content creation tools and programs!
+https://www.patreon.com/dezinated
+
+The editor is good enough to get the basics done but if I can get enough support on Patreon I can continue working on this project and implementing new features such as autosave and adding new tools to make map creation easier.
+
+
 ## Features
 - Extended SDK that allows Prefab loading direct from game content files
 - Importing and exporting .map files
