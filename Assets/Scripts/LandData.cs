@@ -67,7 +67,8 @@ public class LandData : MonoBehaviour {
 
     public void save()
     {
-        splatMap = TypeConverter.multiToSingle(terrain.terrainData.GetAlphamaps(0,0, terrain.terrainData.alphamapWidth, terrain.terrainData.alphamapHeight));
+        float[,,] alphaMaps = terrain.terrainData.GetAlphamaps(0, 0, terrain.terrainData.alphamapWidth, terrain.terrainData.alphamapHeight);
+        splatMap = TypeConverter.multiToSingle(terrain.terrainData.GetAlphamaps(0, 0, terrain.terrainData.alphamapWidth, terrain.terrainData.alphamapHeight));
     }
 
     public float[] getSplat()

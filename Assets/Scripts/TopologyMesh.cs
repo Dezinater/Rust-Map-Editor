@@ -18,6 +18,7 @@ public class TopologyMesh : MonoBehaviour {
     {
         TerrainMap<int> topology = getTerrainMap();
         float[,,] splatMap = new float[topology.res, topology.res, 2];
+
         for (int i = 0; i < topology.res; i++)
         {
             for (int j = 0; j < topology.res; j++)

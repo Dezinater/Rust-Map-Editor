@@ -25,8 +25,8 @@ public class MapIO : MonoBehaviour {
         LandData topologyData = GameObject.FindGameObjectWithTag("Land").transform.Find("Topology").GetComponent<LandData>();
         TerrainMap<int> topologyMap = new TerrainMap<int>(topology.top,1);
         float[,,] splatMap = TypeConverter.singleToMulti(topologyData.splatMap,2);
-
-       for (int i = 0; i < topologyMap.res; i++)
+        
+        for (int i = 0; i < topologyMap.res; i++)
         {
             for (int j = 0; j < topologyMap.res; j++)
             {
@@ -138,8 +138,8 @@ public class MapIO : MonoBehaviour {
         water.terrainData.SetHeights(0, 0, terrains.water.heights);
 
         land.terrainData.alphamapResolution = terrains.resolution;
-        land.terrainData.baseMapResolution = terrains.resolution;
-        land.terrainData.SetDetailResolution(terrains.resolution,8);
+        //land.terrainData.baseMapResolution = terrains.resolution;
+        //land.terrainData.SetDetailResolution(terrains.resolution,8);
 
         land.terrainData.size = terrains.size;
         
@@ -180,6 +180,7 @@ public class MapIO : MonoBehaviour {
     public void Save(string path)
     {
         selectedLandLayer.save();
+        saveTopologyLayer();
         Terrain terrain = GameObject.FindGameObjectWithTag("Land").GetComponent<Terrain>();
         Terrain water = GameObject.FindGameObjectWithTag("Water").GetComponent<Terrain>();
         WorldSerialization world = WorldConverter.terrainToWorld(terrain, water);
