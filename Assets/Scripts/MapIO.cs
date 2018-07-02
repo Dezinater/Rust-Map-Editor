@@ -34,8 +34,14 @@ public class MapIO : MonoBehaviour {
                 {
                     topologyMap[i, j] = topologyMap[i, j] | (int)oldTopologyLayer;
                 }
+                if (splatMap[i, j, 1] > 0)
+                {
+                    topologyMap[i, j] = topologyMap[i, j] & ~(int)oldTopologyLayer;
+                }
             }
         }
+
+
         topology.top = topologyMap.ToByteArray();
     }
 
