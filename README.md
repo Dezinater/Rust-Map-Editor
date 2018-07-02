@@ -34,8 +34,9 @@ What are the different features you can edit?
 - Biome: Affects how the ground textures are coloured and what type of foilage spawns. (Arid, Arctic, Tundra, Temperate)
 - Alpha: Makes parts of the map invisible. This is used for cave entrances and underground tunnels. Basically anything you need to punch a hole in the map for.
 - Topology: One of the most fun features to mess with. This controls quite a few things and I haven't messed around with all of them yet. With this you're able to flag certain areas and control what happens there. For instance areas marked beach will spawn boats and count as spawn points for naked. Setting areas to `RoadSide` will make them spawn road loot.
+-- 
 <details open> 
-<summary>-- List of TopologysWant to ruin the surprise?</summary>
+<summary>List of Topologys</summary>
 <br>
 ---	`Test`
 <details>
