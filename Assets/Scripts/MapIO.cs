@@ -189,6 +189,11 @@ public class MapIO : MonoBehaviour {
         saveTopologyLayer();
         Terrain terrain = GameObject.FindGameObjectWithTag("Land").GetComponent<Terrain>();
         Terrain water = GameObject.FindGameObjectWithTag("Water").GetComponent<Terrain>();
+        if (water == null)
+            Debug.LogError("Water object is not enabled");
+        if (terrain == null)
+            Debug.LogError("Land object is not enabled");
+
         WorldSerialization world = WorldConverter.terrainToWorld(terrain, water);
         
         world.Save(path);
