@@ -8,12 +8,12 @@ Edit > Project Settings > Player > Other Settings > Configuration > Scripting Ru
 ## Features
 - Extended SDK that allows Prefab loading direct from game content files
 - Importing and exporting .map files
-- Ability to edit
--- Terrain Map
--- Ground Textures
--- Biomes
--- Topology
--- Alpha Map
+	- Ability to edit
+	- Terrain Map
+	- Ground Textures
+	- Biomes
+	- Topology
+	- Alpha Map
 - Simple painting tools to easily edit map features
 - Spawn in prefabs such as monuments and decor
 
