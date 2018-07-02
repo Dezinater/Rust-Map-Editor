@@ -113,7 +113,7 @@ public class MapIO : MonoBehaviour {
     {
         return 0.5f * getTerrainSize();
     }
-
+     
     public void Load(WorldSerialization blob)
     {
         Debug.Log("Map hash: " + blob.Checksum);
@@ -124,7 +124,8 @@ public class MapIO : MonoBehaviour {
         LandData groundLandData = GameObject.FindGameObjectWithTag("Land").transform.Find("Ground").GetComponent<LandData>();
         LandData biomeLandData = GameObject.FindGameObjectWithTag("Land").transform.Find("Biome").GetComponent<LandData>();
         LandData alphaLandData = GameObject.FindGameObjectWithTag("Land").transform.Find("Alpha").GetComponent<LandData>();
-        
+        LandData topologyLandData = GameObject.FindGameObjectWithTag("Land").transform.Find("Topology").GetComponent<LandData>();
+
         Terrain land = GameObject.FindGameObjectWithTag("Land").GetComponent<Terrain>();
         Terrain water = GameObject.FindGameObjectWithTag("Water").GetComponent<Terrain>();
 
@@ -155,6 +156,7 @@ public class MapIO : MonoBehaviour {
         
         alphaLandData.setData(terrains.alphaMap, "alpha");
 
+        topologyLandData.setData(topology.getSplatMap((int)topologyLayer), "topology");
         changeLandLayer();
 
         Transform prefabsParent = GameObject.FindGameObjectWithTag("Prefabs").transform;
