@@ -6,8 +6,11 @@ TagManager:
   tags:
   - Terrain
   - Water
-  - MapLoader
   - Land
+  - MapIO
+  - Prefabs
+  - Paths
+  - Topology
   layers:
   - Default
   - TransparentFX

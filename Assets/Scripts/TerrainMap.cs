@@ -4,11 +4,12 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
+[Serializable]
 public class TerrainMap<T> where T : struct
 {
-	public int res;
-	public T[] src;
-	public T[] dst;
+    public int res;
+    public T[] src;
+    public T[] dst;
 
 	public T this[int z, int x]
 	{

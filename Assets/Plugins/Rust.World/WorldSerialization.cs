@@ -45,7 +45,8 @@ public class WorldSerialization
 		[ProtoMember(2)] public byte[] data;
 	}
 
-	[ProtoContract]
+    [Serializable]
+    [ProtoContract]
 	public class PrefabData
 	{
 		[ProtoMember(1)] public string category;
@@ -55,7 +56,9 @@ public class WorldSerialization
 		[ProtoMember(5)] public VectorData scale;
 	}
 
-	[ProtoContract]
+
+    [Serializable]
+    [ProtoContract]
 	public class PathData
 	{
 		[ProtoMember(1)] public string name;
@@ -75,7 +78,8 @@ public class WorldSerialization
 		[ProtoMember(15)] public VectorData[] nodes;
 	}
 
-	[ProtoContract]
+    [Serializable]
+    [ProtoContract]
 	public class VectorData
 	{
 		[ProtoMember(1)] public float x;
