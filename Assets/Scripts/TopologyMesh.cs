@@ -17,7 +17,7 @@ public class TopologyMesh : MonoBehaviour {
     public float[,,] getSplatMap(int layer)
     {
         TerrainMap<int> topology = getTerrainMap();
-        float[,,] splatMap = new float[topology.res, topology.res, 1];
+        float[,,] splatMap = new float[topology.res, topology.res, 2];
         for (int i = 0; i < topology.res; i++)
         {
             for (int j = 0; j < topology.res; j++)
@@ -25,7 +25,7 @@ public class TopologyMesh : MonoBehaviour {
                 if ((topology[i, j] & layer) != 0)
                     splatMap[i, j, 0] = float.MaxValue;
                 else
-                    splatMap[i, j, 0] = float.MinValue;
+                    splatMap[i, j, 1] = float.MaxValue;
 
             }
         }

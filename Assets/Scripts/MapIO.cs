@@ -24,7 +24,7 @@ public class MapIO : MonoBehaviour {
 
         LandData topologyData = GameObject.FindGameObjectWithTag("Land").transform.Find("Topology").GetComponent<LandData>();
         TerrainMap<int> topologyMap = new TerrainMap<int>(topology.top,1);
-        float[,,] splatMap = TypeConverter.singleToMulti(topologyData.splatMap,1);
+        float[,,] splatMap = TypeConverter.singleToMulti(topologyData.splatMap,2);
 
        for (int i = 0; i < topologyMap.res; i++)
         {
@@ -182,7 +182,7 @@ public class MapIO : MonoBehaviour {
         WorldSerialization world = WorldConverter.terrainToWorld(terrain, water);
         
         world.Save(path);
-        Debug.Log("Map hash: " + world.Checksum);
+        //Debug.Log("Map hash: " + world.Checksum);
     }
         
 

@@ -77,18 +77,36 @@ public class WorldConverter {
                 }
             }
         }
-        terrains.alphaMap = new float[alphaMap.res, alphaMap.res, 1];
+        terrains.alphaMap = new float[alphaMap.res, alphaMap.res, 2];
         for (int i = 0; i < terrains.alphaMap.GetLength(0); i++)
         {
             for (int j = 0; j < terrains.alphaMap.GetLength(1); j++)
             {
+                    if (alphaMap[0, i, j] > 0)
+                    {
+                        terrains.alphaMap[i, j, 0] = BitUtility.Byte2Float(alphaMap[0, i, j]);
+                    }
+                    else
+                    {
+                        terrains.alphaMap[i, j, 1] = 0xFF;
+                    }
+            }
+        }
+        /*
+        for (int i = 0; i < terrains.alphaMap.GetLength(0)/4; i++)
+        {
+            for (int j = 0; j < terrains.alphaMap.GetLength(1)/4; j++)
+            {
                 for (int k = 0; k < 1; k++)
                 {
-                    terrains.alphaMap[i, j, k] = BitUtility.Byte2Float(alphaMap[k, i, j]);
+                    //if (BitUtility.Byte2Float(alphaMap[k, i, j]) > 0)
+                        //Debug.Log(alphaMap[k, i, j]);
                 }
             }
         }
+        */
 
+        
         return terrains;
         
     }
@@ -139,15 +157,12 @@ public class WorldConverter {
 
         byte[] alphaBytes = new byte[textureResolution * textureResolution * 1];
         var alphaMap = new TerrainMap<byte>(alphaBytes, 1);
-        float[,,] alphaArray = TypeConverter.singleToMulti(GameObject.FindGameObjectWithTag("Land").transform.Find("Alpha").GetComponent<LandData>().splatMap, 1);
-        for (int i = 0; i < 1; i++)
+        float[,,] alphaArray = TypeConverter.singleToMulti(GameObject.FindGameObjectWithTag("Land").transform.Find("Alpha").GetComponent<LandData>().splatMap, 2);
+        for (int j = 0; j < textureResolution; j++)
         {
-            for (int j = 0; j < textureResolution; j++)
+            for (int k = 0; k < textureResolution; k++)
             {
-                for (int k = 0; k < textureResolution; k++)
-                {
-                    alphaMap[i, j, k] = BitUtility.Float2Byte(alphaArray[j, k, i]);
-                }
+                 alphaMap[0, j, k] = BitUtility.Float2Byte(alphaArray[j, k, 0]);
             }
         }
 

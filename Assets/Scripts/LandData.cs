@@ -78,13 +78,14 @@ public class LandData : MonoBehaviour {
 
     public SplatPrototype[] getAlphaTextures()
     {
-        SplatPrototype[] textures = new SplatPrototype[1];
+        SplatPrototype[] textures = new SplatPrototype[2];
         for (int i = 0; i < textures.Length; i++)
         {
             textures[i] = new SplatPrototype();
         }
 
-        textures[0].texture = Resources.Load<Texture2D>("Textures/biomes/tundra");
+        textures[0].texture = Resources.Load<Texture2D>("Textures/misc/active");
+        textures[1].texture = Resources.Load<Texture2D>("Textures/misc/inactive");
 
         return textures;
     }
