@@ -136,8 +136,11 @@ public class MapIO : MonoBehaviour {
         
         land.terrainData.SetHeights(0, 0, terrains.land.heights);
         water.terrainData.SetHeights(0, 0, terrains.water.heights);
-        
+
         land.terrainData.alphamapResolution = terrains.resolution;
+        land.terrainData.baseMapResolution = terrains.resolution;
+        land.terrainData.SetDetailResolution(terrains.resolution,8);
+
         land.terrainData.size = terrains.size;
         
         groundLandData.setData(terrains.splatMap, "ground");
