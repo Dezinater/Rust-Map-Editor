@@ -5,20 +5,27 @@ Make sure you're using a Unity 2018 version. 2018.2 is confirmed working, not su
 Set your Unity .NET version to 4.0.
 Edit > Project Settings > Player > Other Settings > Configuration > Scripting Runtime Version
 
-Check out my patreon and help support developement for this Map Editor and new future Rust content creation tools and programs!
-https://www.patreon.com/dezinated
-
 ## Features
 - Extended SDK that allows Prefab loading direct from game content files
 - Importing and exporting .map files
 - Ability to edit
-	- Terrain Map
-	- Ground Textures
-	- Biomes
-	- Topology
-	- Alpha Map
+-- Terrain Map
+-- Ground Textures
+-- Biomes
+-- Topology
+-- Alpha Map
 - Simple painting tools to easily edit map features
 - Spawn in prefabs such as monuments and decor
+
+##Notes
+
+- Make sure you're on a Unity 2018 version. 2018.2 is confirmed working.
+- Use .NET 4.0
+- Maps need to be hosted on websites in order for other players to download them (You can use a local path if just testing on your own network)
+- If you get a FileMismatch error that means you already have the file but it doesn't match the one on the server. To delete the copy of the map on your PC just open console in game by hitting F1 and look for the map file name it was trying to download. Then find it in this directory "C:\Program Files (x86)\Steam\steamapps\common\Rust\maps" and delete it. If you're still getting this error that means the server already has the map but it doesn't match the one being downloaded from the website. 
+- Moving terrains around won't do anything. The editor will only export the heightmap.
+- !Important! Water needs to be at 500. It can go over but if it's under 500 it will still count as water but look like land. Use the flatten option from the terrain editor to set it to 500.
+- If you get a `NullReferenceException: Object reference not set to an instance of an object` error message you probably have water disabled. Select the `Water` object from the Hierarchy and in the Inspector select the checkbox by its name to enable it.
 
 
 ## How to use the Editor
@@ -37,7 +44,7 @@ Again with `MapIO` selected you can switch between editing different map feature
 - <b>Biome</b>: Affects how the ground textures are coloured and what type of foilage spawns. (Arid, Arctic, Tundra, Temperate)
 - <b>Alpha</b>: Makes parts of the map invisible. This is used for cave entrances and underground tunnels. Basically anything you need to punch a hole in the map for.
 - <b>Topology</b>: One of the most fun features to mess with. This controls quite a few things and I haven't messed around with all of them yet. With this you're able to flag certain areas and control what happens there. For instance areas marked beach will spawn boats and count as spawn points for naked. Setting areas to `RoadSide` will make them spawn road loot.
-	 - <b>List of Topologies</b>: `Field`, `Cliff`, `Summit`, `Beachside`, `Beach`, `Forest`, `Forestside`, `Ocean`, `Oceanside`, `Decor`, `Monument`, `Road`, `Roadside`, `Swamp`, `River`, `Riverside`, `Lake`, `Lakeside`, `Offshore`, `Powerline`, `Runway`, `Building`, `Cliffside`, `Mountain`, `Clutter`, `Alt`, `Tier0`, `Tier1`, `Tier2`, `Mainland`, `Hilltop`
+ -- <b>List of Topologies</b>: `Field`, `Cliff`, `Summit`, `Beachside`, `Beach`, `Forest`, `Forestside`, `Ocean`, `Oceanside`, `Decor`, `Monument`, `Road`, `Roadside`, `Swamp`, `River`, `Riverside`, `Lake`, `Lakeside`, `Offshore`, `Powerline`, `Runway`, `Building`, `Cliffside`, `Mountain`, `Clutter`, `Alt`, `Tier0`, `Tier1`, `Tier2`, `Mainland`, `Hilltop`
 
 
 ### 4) Using Prefabs
