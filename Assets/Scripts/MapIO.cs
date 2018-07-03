@@ -92,6 +92,7 @@ public class MapIO : MonoBehaviour {
 
     private void cleanUpMap()
     {
+        offset = 0;
         selectedLandLayer = null;
         foreach(PrefabDataHolder g in GameObject.FindObjectsOfType<PrefabDataHolder>())
         {
@@ -113,7 +114,22 @@ public class MapIO : MonoBehaviour {
     {
         return 0.5f * getTerrainSize();
     }
-     
+
+    public float offset = 0;
+    public void offsetHeightmap()
+    {
+        Terrain land = GameObject.FindGameObjectWithTag("Land").GetComponent<Terrain>();
+        float [,] heightMap = land.terrainData.GetHeights(0,0, land.terrainData.heightmapWidth, land.terrainData.heightmapHeight);
+        for(int i = 0; i < heightMap.GetLength(0); i++)
+        {
+            for (int j = 0; j < heightMap.GetLength(1); j++)
+            {
+                heightMap[i, j] = heightMap[i, j] + (offset / land.terrainData.size.y);
+            }
+        }
+        land.terrainData.SetHeights(0,0,heightMap);
+    }
+
     public void Load(WorldSerialization blob)
     {
         Debug.Log("Map hash: " + blob.Checksum);

@@ -46,6 +46,16 @@ public class MapIOEditor : Editor
 */
         
         GUILayout.Label("Land Option", EditorStyles.boldLabel);
+
+        GUILayout.Label("Land Heightmap Offset");
+        script.offset = float.Parse(GUILayout.TextField(script.offset+""));
+        script.offset = GUILayout.HorizontalSlider(script.offset, -500, 500);
+        if (GUILayout.Button("Offset Map"))
+        {
+            script.offsetHeightmap();
+            script.offset = 0;
+        }
+
         string oldLandLayer = script.landLayer;
         string[] options = { "Ground", "Biome", "Alpha", "Topology" };
         script.landSelectIndex = EditorGUILayout.Popup("Select Land Layer:", script.landSelectIndex,  options);
