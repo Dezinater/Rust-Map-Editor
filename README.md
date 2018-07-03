@@ -1,6 +1,6 @@
 # Dezinated's Rust Map Editor + Extended SDK
 
-Make sure you're using a Unity 2018 version. 2018.2 is confirmed working, not sure about 2018.1.
+<b>Make sure you're on Unity 2018.2.0b7 or Unity 2018.2.0b10 version. Those versions are confirmed working. Unity 2018.2.0b11 DOES NOT WORK!</b>
 
 Set your Unity .NET version to 4.0.
 Edit > Project Settings > Player > Other Settings > Configuration > Scripting Runtime Version
@@ -23,9 +23,8 @@ The editor is good enough to get the basics done but if I can get enough support
 - Simple painting tools to easily edit map features
 - Spawn in prefabs such as monuments and decor
 
-##Notes
+## Notes
 
-- <b>Make sure you're on Unity 2018.2.0b7 or Unity 2018.2.0b10 version. Those versions are confirmed working. Unity 2018.2.0b11 DOES NOT WORK!</b>
 - Use .NET 4.0
 - Maps need to be hosted on websites in order for other players to download them (You can use a local path if just testing on your own network)
 - If you get a FileMismatch error that means you already have the file but it doesn't match the one on the server. To delete the copy of the map on your PC just open console in game by hitting F1 and look for the map file name it was trying to download. Then find it in this directory "C:\Program Files (x86)\Steam\steamapps\common\Rust\maps" and delete it. If you're still getting this error that means the server already has the map but it doesn't match the one being downloaded from the website. 
