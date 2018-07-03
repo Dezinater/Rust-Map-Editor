@@ -132,6 +132,9 @@ public class MapIO : MonoBehaviour {
 
     public void Load(WorldSerialization blob)
     {
+		if (topology == null)
+            topology = GameObject.FindGameObjectWithTag("Topology").GetComponent<TopologyMesh>();
+		
         Debug.Log("Map hash: " + blob.Checksum);
         cleanUpMap();
         var terrainSize = new Vector3(blob.world.size, 1000, blob.world.size);
