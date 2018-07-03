@@ -187,7 +187,8 @@ public class MapIO : MonoBehaviour {
 
     public void Save(string path)
     {
-        selectedLandLayer.save();
+        if(selectedLandLayer != null)
+            selectedLandLayer.save();
         saveTopologyLayer();
         Terrain terrain = GameObject.FindGameObjectWithTag("Land").GetComponent<Terrain>();
         Terrain water = GameObject.FindGameObjectWithTag("Water").GetComponent<Terrain>();
