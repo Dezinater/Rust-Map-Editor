@@ -25,7 +25,13 @@ public class MapIO : MonoBehaviour {
         LandData topologyData = GameObject.FindGameObjectWithTag("Land").transform.Find("Topology").GetComponent<LandData>();
         TerrainMap<int> topologyMap = new TerrainMap<int>(topology.top,1);
         float[,,] splatMap = TypeConverter.singleToMulti(topologyData.splatMap,2);
-        
+
+        if (splatMap == null)
+        {
+            Debug.LogError("Splatmap is null");
+            return;
+        }
+
         for (int i = 0; i < topologyMap.res; i++)
         {
             for (int j = 0; j < topologyMap.res; j++)
