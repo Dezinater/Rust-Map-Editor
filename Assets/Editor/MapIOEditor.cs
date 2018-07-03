@@ -55,7 +55,26 @@ public class MapIOEditor : Editor
             script.offsetHeightmap();
             script.offset = 0;
         }
+        /*
+        if (GUILayout.Button("Rotate CW"))
+        {
+            script.rotateHeightmap(true);
+        }
+        if (GUILayout.Button("Rotate CCW"))
+        {
+            script.rotateHeightmap(false);
+        }
 
+        if (GUILayout.Button("Flip Heightmap"))
+        {
+            script.flipHeightmap();
+        }
+        if (GUILayout.Button("Transpose Heightmap"))
+        {
+            script.transposeHeightmap();
+        }
+
+    */
         string oldLandLayer = script.landLayer;
         string[] options = { "Ground", "Biome", "Alpha", "Topology" };
         script.landSelectIndex = EditorGUILayout.Popup("Select Land Layer:", script.landSelectIndex,  options);
