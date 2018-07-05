@@ -1,6 +1,6 @@
 # Dezinated's Rust Map Editor + Extended SDK
 
-Make sure you're using a Unity 2018 version. 2018.2.0b7 is confirmed working, not sure about 2018.1.
+**Make sure you're using a Unity 2018 version. 2018.2.0b7 is confirmed working, not sure about 2018.1.**
 
 Set your Unity .NET version to 4.0.
 Edit > Project Settings > Player > Other Settings > Configuration > Scripting Runtime Version
@@ -15,15 +15,15 @@ The editor is good enough to get the basics done but if I can get enough support
 - Extended SDK that allows Prefab loading direct from game content files
 - Importing and exporting .map files
 - Ability to edit
- -- Terrain Map
- -- Ground Textures
- -- Biomes
- -- Topology
- -- Alpha Map
+  - Terrain Map
+  - Ground Textures
+  - Biomes
+  - Topology
+  - Alpha Map
 - Simple painting tools to easily edit map features
 - Spawn in prefabs such as monuments and decor
 
-##Notes
+## Notes
 
 - <b>Make sure you're on Unity version 2018.2.0b7. Unity 2018.2.0b11 DOES NOT WORK!</b>
 - Use .NET 4.0
@@ -50,7 +50,7 @@ Again with `MapIO` selected you can switch between editing different map feature
 - <b>Biome</b>: Affects how the ground textures are coloured and what type of foilage spawns. (Arid, Arctic, Tundra, Temperate)
 - <b>Alpha</b>: Makes parts of the map invisible. This is used for cave entrances and underground tunnels. Basically anything you need to punch a hole in the map for.
 - <b>Topology</b>: One of the most fun features to mess with. This controls quite a few things and I haven't messed around with all of them yet. With this you're able to flag certain areas and control what happens there. For instance areas marked beach will spawn boats and count as spawn points for naked. Setting areas to `RoadSide` will make them spawn road loot.
- -- <b>List of Topologies</b>: `Field`, `Cliff`, `Summit`, `Beachside`, `Beach`, `Forest`, `Forestside`, `Ocean`, `Oceanside`, `Decor`, `Monument`, `Road`, `Roadside`, `Swamp`, `River`, `Riverside`, `Lake`, `Lakeside`, `Offshore`, `Powerline`, `Runway`, `Building`, `Cliffside`, `Mountain`, `Clutter`, `Alt`, `Tier0`, `Tier1`, `Tier2`, `Mainland`, `Hilltop`
+	- <b>List of Topologies</b>: `Field`, `Cliff`, `Summit`, `Beachside`, `Beach`, `Forest`, `Forestside`, `Ocean`, `Oceanside`, `Decor`, `Monument`, `Road`, `Roadside`, `Swamp`, `River`, `Riverside`, `Lake`, `Lakeside`, `Offshore`, `Powerline`, `Runway`, `Building`, `Cliffside`, `Mountain`, `Clutter`, `Alt`, `Tier0`, `Tier1`, `Tier2`, `Mainland`, `Hilltop`
 
 
 ### 4) Using Prefabs
