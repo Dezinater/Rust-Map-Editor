@@ -15,11 +15,11 @@ The editor is good enough to get the basics done but if I can get enough support
 - Extended SDK that allows Prefab loading direct from game content files
 - Importing and exporting .map files
 - Ability to edit
--- Terrain Map
--- Ground Textures
--- Biomes
--- Topology
--- Alpha Map
+ -- Terrain Map
+ -- Ground Textures
+ -- Biomes
+ -- Topology
+ -- Alpha Map
 - Simple painting tools to easily edit map features
 - Spawn in prefabs such as monuments and decor
 
