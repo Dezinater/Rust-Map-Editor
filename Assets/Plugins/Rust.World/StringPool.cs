@@ -10,7 +10,7 @@ using UnityEngine;
 
 public class StringPool
 {
-    private static Dictionary<uint, string> toString;
+    public static Dictionary<uint, string> toString;
     private static Dictionary<string, uint> toNumber;
     private static bool initialized;
     public static uint closest;

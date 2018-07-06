@@ -11,6 +11,10 @@ https://www.patreon.com/dezinated
 The editor is good enough to get the basics done but if I can get enough support on Patreon I can continue working on this project and implementing new features such as autosave and adding new tools to make map creation easier.
 
 
+### Discord
+
+https://discord.gg/DzFydkE
+
 ## Features
 - Extended SDK that allows Prefab loading direct from game content files
 - Importing and exporting .map files

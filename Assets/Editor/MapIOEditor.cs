@@ -24,6 +24,11 @@ public class MapIOEditor : Editor
 
             var blob = new WorldSerialization();
             Debug.Log("Importing map " + loadFile);
+            if (loadFile == "")
+            {
+                Debug.LogError("Empty load path");
+                return;
+            }
             blob.Load(loadFile);
             script.Load(blob);
         }
@@ -32,6 +37,10 @@ public class MapIOEditor : Editor
         if (GUILayout.Button("Export .map file"))
         {
             saveFile = UnityEditor.EditorUtility.SaveFilePanel("Export Map File", saveFile, mapName, "map");
+            if(saveFile == "")
+            {
+                Debug.LogError("Empty save path");
+            }
             Debug.Log("Exported map " + saveFile);
             script.Save(saveFile);
         }
@@ -45,17 +54,26 @@ public class MapIOEditor : Editor
         }
 */
         
-        GUILayout.Label("Land Option", EditorStyles.boldLabel);
+       
 
-        GUILayout.Label("Land Heightmap Offset");
-        script.offset = float.Parse(GUILayout.TextField(script.offset+""));
-        script.offset = GUILayout.HorizontalSlider(script.offset, -500, 500);
-        if (GUILayout.Button("Offset Map"))
+        GUILayout.Label("Heightmap Options", EditorStyles.boldLabel);
+
+        GUILayout.Label("Land Heightmap Offset (Move Land to correct position)");
+        if (GUILayout.Button("Click here to bake heightmap values"))
         {
             script.offsetHeightmap();
-            script.offset = 0;
         }
-        /*
+
+        GUILayout.Label("Land Heightmap Scale");
+        script.scale = float.Parse(GUILayout.TextField(script.scale + ""));
+        script.scale = GUILayout.HorizontalSlider(script.scale, 0.1f, 2);
+        if (GUILayout.Button("Scale Map"))
+        {
+            script.scaleHeightmap();
+            script.scale = 1f;
+        }
+
+        EditorGUILayout.BeginHorizontal();
         if (GUILayout.Button("Rotate CW"))
         {
             script.rotateHeightmap(true);
@@ -73,28 +91,6 @@ public class MapIOEditor : Editor
         {
             script.transposeHeightmap();
         }
-
-    */
-        string oldLandLayer = script.landLayer;
-        string[] options = { "Ground", "Biome", "Alpha", "Topology" };
-        script.landSelectIndex = EditorGUILayout.Popup("Select Land Layer:", script.landSelectIndex,  options);
-        script.landLayer = options[script.landSelectIndex];
-        if (script.landLayer != oldLandLayer)
-        {
-            script.changeLandLayer();
-            Repaint();
-        }
-        if (script.landLayer.Equals("Topology"))
-        {
-            GUILayout.Label("Topology Option", EditorStyles.boldLabel);
-            script.oldTopologyLayer = script.topologyLayer;
-            script.topologyLayer = (TerrainTopology.Enum)EditorGUILayout.EnumPopup("Select Topology Layer:", script.topologyLayer);
-            if (script.topologyLayer != script.oldTopologyLayer)
-            {
-                //script.saveTopologyLayer();
-                script.changeLandLayer();
-                Repaint();
-            }
-        }
+        EditorGUILayout.EndHorizontal();
     }
 }
