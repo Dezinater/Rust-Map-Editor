@@ -37,14 +37,32 @@ public class WorldConverter {
         var terrainSize = new Vector3(size, 1000, size);
 
         int resolution = Mathf.NextPowerOfTwo((int)(size * 0.50f));
-        
+        /*
+        Terrain land = GameObject.FindGameObjectWithTag("Land").GetComponent<Terrain>();
+        float[,] landHeight = land.terrainData.GetHeights(0, 0, (int)land.terrainData.size.x, (int)land.terrainData.size.y);
+        Debug.Log(landHeight.GetLength(0));
+        MapTransformations.resize(landHeight, size);
+
+        Debug.Log(landHeight.GetLength(0));
+        */
         var terrainMap = new TerrainMap<short>(new byte[(int)Mathf.Pow((resolution + 1), 2) * 2 * 1], 1); //2 bytes 1 channel
         var heightMap = new TerrainMap<short>(new byte[(int)Mathf.Pow((resolution + 1), 2) * 2 * 1], 1); //2 bytes 1 channel
         var waterMap = new TerrainMap<short>(new byte[(int)Mathf.Pow((resolution + 1), 2) * 2 * 1], 1); //2 bytes 1 channel
-        var splatMap = new TerrainMap<byte>(new byte[(int)Mathf.Pow((resolution), 2) * 1 * 8], 8); //1 byte 8 channels
-        var topologyMap = new TerrainMap<int>(new byte[(int)Mathf.Pow((resolution), 2) * 4 * 1], 1); //4 bytes 1 channel
-        var biomeMap = new TerrainMap<byte>(new byte[(int)Mathf.Pow((resolution), 2) * 1 * 4], 4); //1 bytes 4 channels
-        var alphaMap = new TerrainMap<byte>(new byte[(int)Mathf.Pow((resolution), 2) * 1 * 1], 1); //1 byte 1 channel
+        var splatMap = new TerrainMap<byte>(new byte[(int)Mathf.Pow(Mathf.Clamp(resolution,16,2048), 2) * 1 * 8], 8); //1 byte 8 channels
+        var topologyMap = new TerrainMap<int>(new byte[(int)Mathf.Pow(Mathf.Clamp(resolution, 16, 2048), 2) * 4 * 1], 1); //4 bytes 1 channel
+        var biomeMap = new TerrainMap<byte>(new byte[(int)Mathf.Pow(Mathf.Clamp(resolution, 16, 2048), 2) * 1 * 4], 4); //1 bytes 4 channels
+        var alphaMap = new TerrainMap<byte>(new byte[(int)Mathf.Pow(Mathf.Clamp(resolution, 16, 2048), 2) * 1 * 1], 1); //1 byte 1 channel
+
+
+        /*
+        Debug.Log(terrainMap.res + " " + terrainMap.BytesTotal());
+        Debug.Log(heightMap.res + " " + heightMap.BytesTotal());
+        Debug.Log(waterMap.res + " " + waterMap.BytesTotal());
+        Debug.Log(splatMap.res + " " + splatMap.BytesTotal());
+        Debug.Log(topologyMap.res + " " + topologyMap.BytesTotal());
+        Debug.Log(biomeMap.res + " " + biomeMap.BytesTotal());
+        Debug.Log(alphaMap.res + " " + alphaMap.BytesTotal());
+        */
 
         terrains.topology = topologyMap;
 
@@ -133,11 +151,19 @@ public class WorldConverter {
         var biomeMap = new TerrainMap<byte>(blob.GetMap("biome").data, 4);
         var alphaMap = new TerrainMap<byte>(blob.GetMap("alpha").data, 1);
 
-        emptyWorld((int)blob.world.size);
         
         terrains.topology = topologyMap;
 
-        //Debug.Log(topologyMap.res + " " + topologyMap.BytesTotal());
+        /*
+        Debug.Log(terrainMap.res + " " + terrainMap.BytesTotal());
+        Debug.Log(heightMap.res + " " + heightMap.BytesTotal());
+        Debug.Log(waterMap.res + " " + waterMap.BytesTotal());
+        Debug.Log(splatMap.res + " " + splatMap.BytesTotal());
+        Debug.Log(topologyMap.res + " " + topologyMap.BytesTotal());
+        Debug.Log(biomeMap.res + " " + biomeMap.BytesTotal());
+        Debug.Log(alphaMap.res + " " + alphaMap.BytesTotal());
+        */
+
 
         terrains.pathData = blob.world.paths.ToArray();
         terrains.prefabData = blob.world.prefabs.ToArray();

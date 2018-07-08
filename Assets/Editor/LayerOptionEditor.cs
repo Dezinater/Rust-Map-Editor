@@ -17,7 +17,7 @@ public class LayerOptionEditor : Editor
         GUILayout.Label("Land Options", EditorStyles.boldLabel);
 
         //GUILayout.Label("Show Bounds", EditorStyles.boldLabel);
-        script.showBounds = EditorGUILayout.Toggle("Show Bounds", script.showBounds);
+        LayerOptions.showBounds = EditorGUILayout.Toggle("Show Bounds", LayerOptions.showBounds);
 
         string oldLandLayer = mapIO.landLayer;
         string[] options = { "Ground", "Biome", "Alpha", "Topology" };

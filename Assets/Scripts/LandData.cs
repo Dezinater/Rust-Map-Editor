@@ -61,7 +61,11 @@ public class LandData : MonoBehaviour {
             getTextures();
 
         terrain.terrainData.splatPrototypes = textures;
-        terrain.terrainData.SetAlphamaps(0, 0, TypeConverter.singleToMulti(splatMap,textures.Length));
+        float[,,] splats = TypeConverter.singleToMulti(splatMap, textures.Length);
+        /*Debug.Log(splats.GetLength(0) + " " + splats.GetLength(1) + " " + splats.GetLength(2) + " ");
+        Debug.Log(terrain.terrainData.alphamapResolution);
+        Debug.Log(terrain.terrainData.alphamapHeight + " " + terrain.terrainData.alphamapWidth);*/
+        terrain.terrainData.SetAlphamaps(0, 0, splats);
     }
 
 

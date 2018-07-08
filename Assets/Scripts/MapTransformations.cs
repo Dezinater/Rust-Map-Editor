@@ -4,6 +4,23 @@ using UnityEngine;
 
 public class MapTransformations {
 
+    public static float[,] resize(float [,] array, int size)
+    {
+        float[,] tempArray = new float[size, size];
+        int limit = array.GetLength(0) > size ? size : array.GetLength(0);
+
+        for (int i = 0; i < limit; i++)
+        {
+            for (int j = 0; j < limit; j++)
+            {
+                tempArray[i, j] = array[i, j];
+            }
+        }
+
+        return array = tempArray;
+    }
+
+
     public static float[,] rotateCCW(float[,] array)
     {
         float[,] tempArray = new float[array.GetLength(0), array.GetLength(1)];

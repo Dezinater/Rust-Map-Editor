@@ -207,6 +207,7 @@ public class MapIO : MonoBehaviour {
 
 
         topology.InitMesh(terrains.topology);
+       
 
         land.terrainData.heightmapResolution = terrains.resolution;
         land.terrainData.size = terrains.size;
@@ -219,10 +220,10 @@ public class MapIO : MonoBehaviour {
 
         land.terrainData.alphamapResolution = terrains.resolution;
         land.terrainData.baseMapResolution = terrains.resolution - 1;
-        land.terrainData.SetDetailResolution(terrains.resolution - 1, 8);
+        //land.terrainData.SetDetailResolution(terrains.resolution - 1, 8);
         water.terrainData.alphamapResolution = terrains.resolution;
         water.terrainData.baseMapResolution = terrains.resolution - 1;
-        water.terrainData.SetDetailResolution(terrains.resolution - 1, 8);
+        //water.terrainData.SetDetailResolution(terrains.resolution - 1, 8);
 
         land.GetComponent<UpdateTerrainValues>().setSize(terrains.size);
         water.GetComponent<UpdateTerrainValues>().setSize(terrains.size);

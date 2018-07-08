@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LayerOptions : MonoBehaviour
 {
-    public bool showBounds = false;
+    public static bool showBounds = false;
     MapIO mapIO;
 
 
@@ -15,7 +15,11 @@ public class LayerOptions : MonoBehaviour
 
         if (showBounds)
         {
-            Gizmos.DrawWireCube(MapIO.getMapOffset(), MapIO.getTerrainSize());
+            Vector3 offset = MapIO.getMapOffset();
+            Vector3 size = MapIO.getTerrainSize();
+            Gizmos.DrawWireCube(offset, size);
+            Gizmos.color = new Color(51f / 255f, 158f / 255f, 204f / 255f, 0.4f);
+            Gizmos.DrawCube(new Vector3(offset.x, offset.y/2, offset.z), new Vector3(size.x, size.y/2, size.z));
         }
     }
 
