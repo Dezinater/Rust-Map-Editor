@@ -1,12 +1,9 @@
-# Dezinated's Rust Map Editor + Extended SDK
+# Rust Map Editor + Extended SDK
 
 **Make sure you're using a Unity 2018 version. 2018.2.0b7 is confirmed working, not sure about 2018.1.**
 
 Set your Unity .NET version to 4.0.
 Edit > Project Settings > Player > Other Settings > Configuration > Scripting Runtime Version
-
-Check out my patreon and help support developement for this Map Editor and new future Rust content creation tools and programs!
-https://www.patreon.com/dezinated
 
 The editor is good enough to get the basics done but if I can get enough support on Patreon I can continue working on this project and implementing new features such as autosave and adding new tools to make map creation easier.
 
@@ -37,7 +34,7 @@ The editor is good enough to get the basics done but if I can get enough support
 ## How to use the Editor
 
 ### 1) Opening the Project
-Make sure you're on Unity 2018.2 and then launch Unity. When the Unity projects window opens up click on Open. Do not create a new project. Select the folder that contains the files downloaded from GitHub. Load `Dezinated's Rust Map Editor` project and it should take you into the editor view. Then at the bottom of the editor view there should be a file explorer; navigate to the Scenes folder and open `SampleScene`.
+Make sure you're on Unity 2018.2 and then launch Unity. When the Unity projects window opens up click on Open. Do not create a new project. Select the folder that contains the files downloaded from GitHub. Load `Rust Map Editor` project and it should take you into the editor view. Then at the bottom of the editor view there should be a file explorer; navigate to the Scenes folder and open `SampleScene`.
 
 ### 2) Loading a Map
 On the left side of the editor screen, in the Hierarchy you will see all of the object the scene contains. Click on the `MapIO` object and you will notice map option on the right side of the editor in the Inspector. Import/Export buttons are to load and save .map files.
